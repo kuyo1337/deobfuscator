@@ -4,22 +4,6 @@
 # python deobfuscator
 This is a Python-based tool designed to help you deobfuscate code that has been obfuscated via a combination of zlib compression, marshal serialization, and Base64 encoding. This utility automatically detects and handles both common encoding sequences, making it easier to recover obfuscated bytecode and generate Python compiled files (`.pyc`).
 
-## Features
-
-- **Automatic Sequence Detection:**  
-  Detects if the obfuscation sequence is either:
-  - `marshal → zlib → base64`  
-  - `marshal → base64 → zlib`
-  
-- **User-friendly Interface:**  
-  Provides clear output detailing the detected sequence and confirms when the deobfuscated `.pyc` file is saved.
-
-- **Extensible Codebase:**  
-  Written in clean, well-commented Python code that is easy to modify or extend for further functionality (like converting `.pyc` back to `.py`).
-
-- **ASCII Art Intro:**  
-  Displays a cool ASCII art banner upon startup.
-
 ## Installation
 
 1. **Clone the repository:**
@@ -67,19 +51,6 @@ The program will:
 [+] Decompiled .pyc saved to: kuyo1337.pyc
 ```
 
-## How It Works
-
-1. **Extract Base64 String:**  
-   The tool scans for the typical `base64.b64decode(b'...')` pattern in the file.
-
-2. **Decode the Data:**  
-   It then attempts both:
-   - **Sequence 1:** `Base64 → zlib.decompress → marshal.loads`  
-   - **Sequence 2:** `Base64 → alternate sequence (if applicable)`
-
-3. **Generate `.pyc` File:**  
-   Once the data is successfully decoded, it writes out a `.pyc` file prefixed with a basic header.
-
 ## Contributing
 
 Contributions, bug reports, and feature requests are welcome! Please open an issue or submit a pull request if you have suggestions or improvements.
@@ -90,8 +61,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Disclaimer
 
-**PyZMBInit** is intended for educational and recovery purposes only. Use this tool responsibly and only on code that you have permission to deobfuscate.
+This project is intended for educational and recovery purposes only. Use this tool responsibly and only on code that you have permission to deobfuscate.
 
 ---
 
-Feel free to customize this README to better match the exact details of your project or any additional functionality you add. Enjoy deobfuscating with **PyZMBInit**!
